@@ -874,6 +874,290 @@
     line-height: 1.65;
   }
 
+  /* ====== ROADMAP / QUEST LOG ====== */
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .rm-phase {
+    border: 1px solid var(--rule);
+    background: var(--bg-elev);
+    transition: border-color 0.3s;
+  }
+
+  .rm-phase.live { border-color: var(--red); }
+  .rm-phase.next { border-color: var(--gold); }
+  .rm-phase.locked { border-color: var(--rule); opacity: 0.85; }
+  .rm-phase.locked .rm-quest-list { filter: saturate(0.5); }
+  .rm-phase.endgame { border-color: var(--red); }
+
+  .rm-phase-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+    background: var(--ink);
+  }
+
+  .rm-phase.live .rm-phase-head {
+    background: linear-gradient(135deg, var(--ink), rgba(232, 74, 63, 0.08));
+    border-bottom-color: var(--red);
+  }
+
+  .rm-phase.endgame .rm-phase-head {
+    background: linear-gradient(135deg, var(--ink), rgba(232, 74, 63, 0.05));
+  }
+
+  .rm-phase-id {
+    font-family: 'Boldonse', serif;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+  }
+
+  .rm-phase-id .red { color: var(--red); }
+
+  .rm-phase-meta .name {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .rm-phase-meta .dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: 0.12em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .rm-phase-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    padding: 8px 14px;
+    border: 1px solid;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .rm-phase-status.live {
+    color: var(--red);
+    border-color: var(--red);
+    background: rgba(232, 74, 63, 0.08);
+  }
+  .rm-phase-status.next {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .rm-phase-status.locked {
+    color: var(--fg-muted);
+    border-color: var(--fg-muted);
+  }
+
+  .rm-phase-note {
+    padding: 14px 32px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--fg-dim);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+  }
+
+  .rm-quest-list {
+    list-style: none;
+    padding: 8px 32px 16px;
+  }
+
+  .rm-quest {
+    display: grid;
+    grid-template-columns: 36px 110px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .rm-quest:last-child { border-bottom: none; }
+
+  .rm-quest-num {
+    font-family: 'Shippori Mincho B1', serif;
+    color: var(--red);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+  }
+
+  .rm-quest-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding-top: 2px;
+  }
+
+  .rm-quest-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 3px 6px;
+    border: 1px solid var(--rule-strong);
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .rm-quest-tag.mcap { border-color: var(--red); color: var(--red); background: rgba(232, 74, 63, 0.05); }
+  .rm-quest-tag.token { border-color: var(--gold); color: var(--gold); }
+  .rm-quest-tag.agent { border-color: var(--green); color: var(--green); }
+  .rm-quest-tag.wc { border-color: var(--red); color: var(--red); }
+  .rm-quest-tag.viral { border-color: var(--gold); color: var(--gold); }
+  .rm-quest-tag.rev { border-color: var(--green); color: var(--green); }
+
+  .rm-quest-title {
+    font-size: 13px;
+    color: var(--fg);
+    line-height: 1.6;
+  }
+
+  .rm-quest-title strong { color: var(--red); font-weight: 600; }
+  .rm-quest-title em { color: var(--gold); font-style: normal; }
+
+  .rm-phase-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    border-top: 1px solid var(--rule);
+    background: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: 0.15em;
+  }
+
+  .rm-phase-foot .red { color: var(--red); }
+
+  .rm-victory {
+    margin-top: 40px;
+    border: 1px solid var(--red);
+    background: linear-gradient(135deg, var(--ink), rgba(232, 74, 63, 0.05));
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rm-victory::before {
+    content: '福';
+    position: absolute;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 360px;
+    color: var(--red);
+    opacity: 0.04;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .rm-victory .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .rm-victory h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .rm-victory ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 40px;
+    position: relative;
+  }
+
+  .rm-victory li {
+    font-size: 13px;
+    color: var(--fg);
+    padding: 8px 0 8px 28px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .rm-victory li::before {
+    content: '福';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--red);
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 14px;
+  }
+
+  .rm-nope {
+    margin-top: 24px;
+    padding: 24px 32px;
+    border: 1px solid var(--rule);
+    background: var(--bg-elev);
+  }
+
+  .rm-nope .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: 0.25em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .rm-nope-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .rm-nope-list span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    border: 1px solid var(--rule-strong);
+    color: var(--fg-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 1px;
+  }
+
+  @media (max-width: 900px) {
+    .rm-phase-head { grid-template-columns: 1fr; gap: 12px; }
+    .rm-phase-head .rm-phase-status { justify-self: start; }
+    .rm-quest { grid-template-columns: 28px 1fr; }
+    .rm-quest-tags { grid-column: 2; }
+    .rm-quest-body { grid-column: 2; }
+    .rm-victory { padding: 28px; }
+    .rm-victory ul { grid-template-columns: 1fr; }
+    .rm-phase-foot { flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+
   /* ====== BOTTOM LINE ====== */
   .bottom-line {
     padding: 120px 48px;
@@ -1061,7 +1345,7 @@
   </div>
 
   <div class="hero-foot">
-    <div>§ 01 · 11 sections · Read time ~12 min</div>
+    <div>§ 01 · 12 sections · Read time ~16 min</div>
     <div>↓ Begin</div>
   </div>
 
@@ -1740,6 +2024,387 @@
         <li><strong>04</strong> — Virtuals ACP integration (sell picks to other agents)</li>
         <li><strong>05</strong> — Cross-promote on Virtuals leaderboards</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 10 ROADMAP ====== -->
+<section id="roadmap">
+  <div class="section-head">
+    <div class="section-num">§ 10 / Roadmap</div>
+    <div>
+      <h2 class="section-title"><span class="em">Fifty</span> quests,<br>one <span class="red">120-day</span> drop</h2>
+      <p class="section-intro">
+        Each line below is one ticket. <strong>Phase A unlocks today.</strong> Everything else stays locked until the calendar opens it. The market-cap endgame doesn't unlock until <strong>day 92</strong>, and Day 120 is the final gate the project has to walk through.
+      </p>
+    </div>
+  </div>
+
+  <div class="roadmap">
+
+    <!-- PHASE A · LIVE -->
+    <div class="rm-phase live">
+      <div class="rm-phase-head">
+        <div class="rm-phase-id">Phase <span class="red">A</span></div>
+        <div class="rm-phase-meta">
+          <div class="name">Pre-Cup Sprint</div>
+          <div class="dates">MAY 18 — JUN 10 · 24 DAYS · 25 QUESTS</div>
+        </div>
+        <div class="rm-phase-status live">● LIVE · IN PROGRESS</div>
+      </div>
+      <div class="rm-phase-note">
+        Foundation. Every quest below has to ship before kickoff or it doesn't ship at all.
+      </div>
+      <ul class="rm-quest-list">
+        <li class="rm-quest">
+          <div class="rm-quest-num">01</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SEO</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Kill the <em>"CBB Predictions"</em> title. Every page gets a real headline that Google, Twitter, and Telegram can finally unfurl.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">02</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SEO</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Server-rendered HTML on every public page. Crawlers, link previews, and shares finally look like a product, not an empty SPA.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">03</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SEO</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Auto-generated sitemap of every tipster and every match. Indexable from day one.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">04</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SEO</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Rich Google results for <em>"best NFL tipster"</em> — structured data on every match and tipster page.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">05</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag viral">VIRAL</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Dynamic OG cards for every tipster, every pick, every match. <strong>Every share becomes a billboard.</strong></div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">06</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">BRAND</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">New hero copy: <em>Fuku Bets · Virtuals agent · multi-sport · World Cup front and center.</em></div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">07</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">BRAND</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">fuku.ag, brain.fuku.ag, bets.fuku.ag — one ecosystem, three surfaces, one unified 福 wordmark.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">08</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">One-click wallet connect on Base. Coinbase Wallet first; every Base-native wallet supported.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">09</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Public agent profile at /agent — what Fuku does autonomously, $FUKU contract address, live Virtuals link.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">10</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Home page becomes a <strong>live ticker</strong> of the agent's autonomous activity — picks, settlements, leaderboard moves.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">11</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Tipster API rewired and cached. Picks update in real time across the site.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">12</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Every tipster gets a public, indexable, branded profile page — stats, hot/cold streak, picks feed, follow button.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">13</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">The honest tipster leaderboard. Composite-scored. <em>Argument-bait by design.</em></div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">14</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">One-tap tail flow. Pick card to placed bet in <strong>under five seconds</strong>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">15</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag token">TOKEN</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">$FUKU price, market cap, and volume live across the site. Trading-terminal feel.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">16</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag token">TOKEN</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Premium tier auto-detected from your wallet — <strong>no claim button, no form, just hold and unlock</strong>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">17</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag viral">VIRAL</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">X bot live. Every high-confidence pick auto-posted with a slip card and the tipster's handle.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">18</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag viral">VIRAL</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Telegram bot live: account link, daily pick DM, tail-by-command, public picks channel.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">19</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag rev">REV</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Daily streak system. 7/14/30-day milestones drop $FUKU into the wallets that show up.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">20</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag rev">REV</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Wallet-based referral with on-chain attribution. Real-time dashboard. Revshare paid in $FUKU.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">21</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag wc">WC</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">/world-cup landing page goes live — kickoff countdown, featured tipsters, bracket entry, <em>Hammer of the Day</em>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">22</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag wc">WC</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Free-to-play bracket game.</strong> Wallet-bound entries. Prize pool in $FUKU + USDC. Closes June 10 23:59 UTC.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">23</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">DATA</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">DAU, tail-rate, and holder-delta dashboards live before traffic arrives. Sentry + Axiom + PostHog wired in.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">24</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">OPS</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Load-test at <strong>5× expected match-day traffic</strong>. No fold during Brazil–Argentina.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">25</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SHIP</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Final deploy + runbook locked in by <strong>June 10 23:59 UTC</strong>. CI freeze enforced. Pager primed.</div></div>
+        </li>
+      </ul>
+      <div class="rm-phase-foot">
+        <span>START · MAY 18</span>
+        <span class="red">SHIP FREEZE · JUN 10 23:59 UTC</span>
+      </div>
+    </div>
+
+    <!-- PHASE B · NEXT -->
+    <div class="rm-phase next">
+      <div class="rm-phase-head">
+        <div class="rm-phase-id">Phase <span class="red">B</span></div>
+        <div class="rm-phase-meta">
+          <div class="name">World Cup · Operating Mode</div>
+          <div class="dates">JUN 11 — JUL 19 · 39 DAYS · 8 QUESTS</div>
+        </div>
+        <div class="rm-phase-status next">◐ QUEUED · UNLOCKS JUN 11</div>
+      </div>
+      <div class="rm-phase-note">
+        No new features. Operate. Match days are twelve-hour shifts.
+      </div>
+      <ul class="rm-quest-list">
+        <li class="rm-quest">
+          <div class="rm-quest-num">26</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">OPS</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">T-2h morning Telegram digest every day — top three picks of the day, posted <strong>before the first whistle</strong>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">27</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">OPS</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Evening Telegram recap every day — biggest wins, leaderboard movement, tomorrow's marquee match.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">28</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag viral">VIRAL</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">X bot auto-posts every win with a slip card. Streaks of three or more get <em>quote-tweeted by the agent itself</em>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">29</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag rev">REV</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Live bet-pool per match — visible consensus, who's on which side. Zero schema changes.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">30</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Weekly auto-crowning of the top tipster. The agent posts the announcement <strong>from its own account</strong>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">31</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">DATA</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Daily ops dispatch: DAU, picks placed, tail-rate, holder delta, top failures, slowest queries.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">32</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag wc">WC</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Knockouts open June 28.</strong> Per-match stake polls + tipster live commentary slots.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">33</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag wc">WC</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Final week (July 15–19): pre-final hype, bracket prize tease, <strong>champion tipster crowning July 19</strong>.</div></div>
+        </li>
+      </ul>
+      <div class="rm-phase-foot">
+        <span>KICKOFF · JUN 11</span>
+        <span>FINAL · JUL 19</span>
+      </div>
+    </div>
+
+    <!-- PHASE C · LOCKED -->
+    <div class="rm-phase locked">
+      <div class="rm-phase-head">
+        <div class="rm-phase-id">Phase <span class="red">C</span></div>
+        <div class="rm-phase-meta">
+          <div class="name">Post-Cup Bridge</div>
+          <div class="dates">JUL 20 — AUG 16 · 28 DAYS · 7 QUESTS</div>
+        </div>
+        <div class="rm-phase-status locked">○ LOCKED · UNLOCKS JUL 20</div>
+      </div>
+      <div class="rm-phase-note">
+        Convert tourists into year-round holders. Reactivation beats new acquisition.
+      </div>
+      <ul class="rm-quest-list">
+        <li class="rm-quest">
+          <div class="rm-quest-num">34</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag rev">REV</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Win-back goes live July 20.</strong> Email + X + Telegram + on-chain outreach to every dormant wallet.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">35</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">BRAND</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Tipsters become brand personalities — bios, weekly recaps, signed posts. No more <em>"algorithm output"</em>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">36</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Multi-sport live: EPL pre-season, Champions League prep, NBA Summer League, tennis.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">37</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag wc">WC</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Bracket leaderboard locked as <strong>permanent Hall of Fame</strong>. Champion tipster wears a persistent badge.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">38</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag viral">VIRAL</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>EPL kickoff August 9</strong> reactivation push: <em>"don't lose your tournament momentum."</em></div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">39</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Everything cut from pre-cup ships now: deeper profiles, friends, richer missions, comments + reactions.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">40</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">DATA</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Cohort study: which channels brought sticky users, which tipsters retained their followers, which features they all touched.</div></div>
+        </li>
+      </ul>
+      <div class="rm-phase-foot">
+        <span>BRIDGE START · JUL 20</span>
+        <span>EPL · AUG 9</span>
+      </div>
+    </div>
+
+    <!-- PHASE D · LOCKED · ENDGAME -->
+    <div class="rm-phase locked endgame">
+      <div class="rm-phase-head">
+        <div class="rm-phase-id">Phase <span class="red">D</span></div>
+        <div class="rm-phase-meta">
+          <div class="name">Compound · Market Cap Endgame</div>
+          <div class="dates">AUG 17 — SEP 14 · 29 DAYS · 10 QUESTS</div>
+        </div>
+        <div class="rm-phase-status locked">○ LOCKED · UNLOCKS AUG 17</div>
+      </div>
+      <div class="rm-phase-note">
+        Endgame. Every quest here is targeted at the token, the agent ranking, or both.
+      </div>
+      <ul class="rm-quest-list">
+        <li class="rm-quest">
+          <div class="rm-quest-num">41</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Hard-launch the Fuku agent.</strong> 24/7 X presence. Signed posts. In-character replies. A real autonomous voice.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">42</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag">DATA</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Weekly merkle root</strong> of every resolved pick written to Base. A verifiable, unforgeable track record anyone can audit.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">43</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag token">TOKEN</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Holders see picks at minute zero. Free tier delayed thirty minutes.</strong> Visible <em>"what your $FUKU gets you"</em> page.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">44</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag rev">REV</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Auto-buyback live.</strong> A cut of sportsbook + affiliate revenue auto-buys $FUKU to treasury. Weekly public report.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">45</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Plug into Virtuals ACP.</strong> Other agents query Fuku for picks via x402, paying in $VIRTUAL.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">46</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag agent">AGENT</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Submit Fuku for Virtuals top-by-aGDP rankings. Coordinate <em>agent-to-agent X engagements</em>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">47</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag mcap">MCAP</span><span class="rm-quest-tag">BRAND</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">Press push — Decrypt, The Block, Cointelegraph. Angle: <em>"the first sports-betting agent on Virtuals."</em></div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">48</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">CORE</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>NFL Week 1 ignition · Sep 10.</strong> Agent autonomously ships NFL picks in real time. Dedicated NFL leaderboard.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">49</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">DATA</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title">First agent revenue dashboard published. Protocol fees, buybacks, treasury, tipster payouts — <strong>all on-chain provable</strong>.</div></div>
+        </li>
+        <li class="rm-quest">
+          <div class="rm-quest-num">50</div>
+          <div class="rm-quest-tags"><span class="rm-quest-tag">SHIP</span></div>
+          <div class="rm-quest-body"><div class="rm-quest-title"><strong>Day 120 release.</strong> Community changelog. Treasury report. Q4 2026 roadmap committed publicly.</div></div>
+        </li>
+      </ul>
+      <div class="rm-phase-foot">
+        <span>COMPOUND START · AUG 17</span>
+        <span class="red">DAY 120 · SEP 14</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VICTORY CONDITIONS -->
+  <div class="rm-victory">
+    <div class="lbl">— Day 120 unlock condition · September 14, 2026 —</div>
+    <h3>Six things have to be true.</h3>
+    <ul>
+      <li>$FUKU has visible product utility — gating, buybacks, holder-only access.</li>
+      <li>Agent has autonomous public presence on X with real engagement.</li>
+      <li>Verifiable on-chain track record published weekly to Base.</li>
+      <li>Listed on Virtuals ecosystem trackers as an active agent.</li>
+      <li>DAU, holder count, and tail-rate all trending up week-over-week.</li>
+      <li>Roadmap into Q4 2026 written and committed publicly.</li>
+    </ul>
+  </div>
+
+  <!-- HARD NOS -->
+  <div class="rm-nope">
+    <div class="lbl">Hard nos for all 120 days · do not build</div>
+    <div class="rm-nope-list">
+      <span>New token launch</span>
+      <span>NFTs</span>
+      <span>On-chain bet settlement</span>
+      <span>Casino games</span>
+      <span>Native mobile apps</span>
+      <span>DAO</span>
+      <span>AI-generated picks</span>
+      <span>Custom chat infra</span>
+      <span>Sportsbook core rewrite</span>
+      <span>Multi-language v1</span>
     </div>
   </div>
 </section>
