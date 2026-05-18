@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福 bets.fuku.ag — Execution Roadmap</title>
+<meta name="description" content="A 60-day execution roadmap for bets.fuku.ag — built around the 2026 FIFA World Cup window.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Shippori+Mincho+B1:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0908;
+    --bg-elev: #131110;
+    --bg-warm: #1a1614;
+    --fg: #f0ead6;
+    --fg-dim: #a89f8c;
+    --fg-muted: #6b6356;
+    --rule: #2a2520;
+    --rule-strong: #3d362e;
+    --red: #e84a3f;
+    --red-deep: #c9302b;
+    --red-glow: rgba(232, 74, 63, 0.18);
+    --gold: #d4a843;
+    --green: #6cba7f;
+    --paper: #f4ecd4;
+    --ink: #1a1410;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at top, rgba(232, 74, 63, 0.05), transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ====== TOP TICKER ====== */
+  .ticker {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: scroll 60s linear infinite;
+    padding-left: 100%;
+  }
+
+  .ticker-item {
+    color: var(--fg-dim);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ticker-item .dot { color: var(--red); }
+  .ticker-item .val { color: var(--fg); }
+  .ticker-item .up { color: var(--green); }
+  .ticker-item .down { color: var(--red); }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    min-height: 100vh;
+    padding: 80px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.3;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .brand .kanji {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 56px;
+    color: var(--red);
+    line-height: 1;
+    text-shadow: 0 0 40px var(--red-glow);
+  }
+
+  .brand .text {
+    line-height: 1.2;
+  }
+
+  .brand .domain {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .brand .sub {
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .doc-meta {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--fg-dim);
+  }
+
+  .doc-meta .label { color: var(--fg-muted); }
+  .doc-meta .val { color: var(--fg); }
+
+  .hero-main {
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+    max-width: 1400px;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .hero-title {
+    font-family: 'Boldonse', serif;
+    font-size: clamp(48px, 9vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--fg);
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  .hero-title .red { color: var(--red); }
+  .hero-title .em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--fg-dim);
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .hero-sub strong { color: var(--fg); font-weight: 500; }
+
+  .countdown {
+    display: flex;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    width: fit-content;
+    margin-top: 24px;
+  }
+
+  .countdown-cell {
+    background: var(--bg);
+    padding: 16px 28px;
+    text-align: center;
+    min-width: 110px;
+  }
+
+  .countdown-cell.accent { background: var(--red); }
+  .countdown-cell.accent .num { color: var(--paper); }
+  .countdown-cell.accent .lbl { color: var(--paper); opacity: 0.8; }
+
+  .countdown-cell .num {
+    font-family: 'Boldonse', serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+
+  .countdown-cell .lbl {
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .hero-foot {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    font-size: 11px;
+    color: var(--fg-dim);
+  }
+
+  .scroll-cue {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    position: absolute;
+    right: 48px;
+    bottom: 80px;
+    z-index: 3;
+  }
+
+  /* ====== SECTIONS ====== */
+  section {
+    padding: 96px 48px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    align-items: start;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-top: 16px;
+    border-top: 1px solid var(--red);
+    width: fit-content;
+  }
+
+  .section-title {
+    font-family: 'Boldonse', serif;
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+
+  .section-title .em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .section-title .red { color: var(--red); }
+
+  .section-intro {
+    grid-column: 2;
+    font-size: 15px;
+    color: var(--fg-dim);
+    line-height: 1.7;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  .section-intro strong { color: var(--fg); font-weight: 500; }
+
+  /* ====== AUDIT FINDINGS ====== */
+  .findings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .finding {
+    background: var(--bg);
+    padding: 32px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .finding:hover { background: var(--bg-elev); }
+
+  .finding-num {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 13px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+  }
+
+  .finding-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  .finding-tag.warn { color: var(--gold); border-color: var(--gold); }
+
+  .finding h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .finding p {
+    font-size: 13px;
+    color: var(--fg-dim);
+    line-height: 1.7;
+  }
+
+  .finding p strong { color: var(--fg); }
+
+  .finding-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    background: var(--ink);
+    padding: 10px 14px;
+    margin-top: 16px;
+    border-left: 2px solid var(--red);
+    word-break: break-all;
+  }
+
+  /* ====== STRATEGIC PIVOT ====== */
+  .pivot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .pivot {
+    border: 1px solid var(--rule);
+    padding: 32px;
+    background: var(--bg-elev);
+    position: relative;
+  }
+
+  .pivot-kanji {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 72px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 24px;
+    text-shadow: 0 0 30px var(--red-glow);
+  }
+
+  .pivot-label {
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .pivot h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .pivot p {
+    font-size: 13px;
+    color: var(--fg-dim);
+    line-height: 1.7;
+  }
+
+  .pivot p + p { margin-top: 14px; }
+  .pivot strong { color: var(--fg); }
+
+  /* ====== TIPSTER MOAT ====== */
+  .moat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .moat-statement {
+    border-left: 3px solid var(--red);
+    padding: 8px 0 8px 32px;
+  }
+
+  .moat-statement .q {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .moat-statement .q em {
+    font-family: 'Boldonse', serif;
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .moat-statement p {
+    color: var(--fg-dim);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  .moat-list {
+    list-style: none;
+  }
+
+  .moat-list li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .moat-list li:last-child { border-bottom: none; }
+
+  .moat-list .idx {
+    font-family: 'Shippori Mincho B1', serif;
+    color: var(--red);
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .moat-list h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .moat-list p {
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.6;
+  }
+
+  /* ====== TIMELINE ====== */
+  .timeline-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+
+  .tm-cell {
+    padding: 20px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .tm-cell:last-child { border-right: none; }
+
+  .tm-cell .lbl {
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .tm-cell .val {
+    font-family: 'Boldonse', serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--fg);
+  }
+
+  .tm-cell .val .red { color: var(--red); }
+
+  .timeline {
+    border: 1px solid var(--rule);
+  }
+
+  .phase-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .phase-row:last-child { border-bottom: none; }
+
+  .phase-label {
+    padding: 28px 24px;
+    background: var(--bg-elev);
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .phase-label .phase-num {
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .phase-label .phase-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .phase-label .phase-date {
+    font-size: 10px;
+    color: var(--fg-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .phase-content {
+    padding: 28px;
+  }
+
+  .week-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .week-row:last-child { border-bottom: none; }
+
+  .week-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    padding-top: 2px;
+  }
+
+  .week-content { font-size: 13px; line-height: 1.7; color: var(--fg-dim); }
+  .week-content strong { color: var(--fg); }
+
+  .phase-row.cup .phase-label { background: var(--red); color: var(--paper); }
+  .phase-row.cup .phase-label .phase-num,
+  .phase-row.cup .phase-label .phase-name,
+  .phase-row.cup .phase-label .phase-date { color: var(--paper); }
+
+  /* ====== TIER MATRIX ====== */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .tier {
+    border: 1px solid var(--rule);
+    padding: 32px;
+    background: var(--bg-elev);
+  }
+
+  .tier.t1 { border-color: var(--red); }
+  .tier.t1 .tier-tag { color: var(--red); border-color: var(--red); }
+
+  .tier.t2 { border-color: var(--gold); }
+  .tier.t2 .tier-tag { color: var(--gold); border-color: var(--gold); }
+
+  .tier.t3 .tier-tag { color: var(--fg-dim); border-color: var(--fg-dim); }
+  .tier.t4 .tier-tag { color: var(--fg-muted); border-color: var(--fg-muted); }
+
+  .tier.t4 ul li { color: var(--fg-muted); text-decoration: line-through; text-decoration-color: var(--rule); }
+
+  .tier-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tier-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid;
+  }
+
+  .tier-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .tier ul {
+    list-style: none;
+  }
+
+  .tier ul li {
+    padding: 10px 0;
+    font-size: 13px;
+    color: var(--fg);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: center;
+  }
+
+  .tier ul li:last-child { border-bottom: none; }
+
+  .tier ul li::before {
+    content: '→';
+    color: var(--red);
+    font-size: 12px;
+  }
+
+  .tier.t4 ul li::before { content: '×'; color: var(--fg-muted); }
+  .tier.t2 ul li::before { color: var(--gold); }
+
+  /* ====== STACK ====== */
+  .stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .stack-cell {
+    background: var(--bg);
+    padding: 28px;
+  }
+
+  .stack-cell h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .stack-cell .label {
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .stack-cell ul { list-style: none; }
+  .stack-cell ul li {
+    padding: 6px 0;
+    font-size: 12px;
+    color: var(--fg-dim);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stack-cell ul li:last-child { border-bottom: none; }
+  .stack-cell ul li strong { color: var(--fg); font-weight: 500; }
+
+  /* ====== POST-CUP ====== */
+  .postcup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .postcup-stack {
+    border-left: 1px solid var(--rule);
+  }
+
+  .postcup-event {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .postcup-event::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 32px;
+    width: 9px;
+    height: 9px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  .postcup-event .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .postcup-event h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .postcup-event p {
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.6;
+  }
+
+  .postcup-statement {
+    padding-right: 32px;
+  }
+
+  .postcup-statement .pull {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  .postcup-statement .pull em {
+    font-family: 'Boldonse', serif;
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .postcup-statement p {
+    font-size: 14px;
+    color: var(--fg-dim);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ====== INSIGHTS / FINAL ====== */
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .insight {
+    background: var(--bg);
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .insight.featured {
+    background: var(--red);
+    color: var(--paper);
+  }
+
+  .insight.featured .lbl,
+  .insight.featured .num,
+  .insight.featured h3,
+  .insight.featured p { color: var(--paper); }
+
+  .insight .num {
+    font-family: 'Boldonse', serif;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .insight.featured .num { color: var(--paper); opacity: 0.6; }
+
+  .insight .lbl {
+    font-size: 10px;
+    color: var(--fg-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .insight h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .insight p {
+    font-size: 13px;
+    color: var(--fg-dim);
+    line-height: 1.65;
+  }
+
+  /* ====== BOTTOM LINE ====== */
+  .bottom-line {
+    padding: 120px 48px;
+    text-align: center;
+    background: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-line::before {
+    content: '福';
+    position: absolute;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 720px;
+    color: var(--red);
+    opacity: 0.04;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .bottom-line .pre {
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .bottom-line h2 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  .bottom-line h2 em {
+    font-family: 'Boldonse', serif;
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .bottom-line .sig {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 13px;
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    position: relative;
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    padding: 48px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+
+  footer .kanji {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 18px;
+    color: var(--red);
+    margin-right: 12px;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 900px) {
+    section { padding: 64px 24px; }
+    .hero { padding: 60px 24px 32px; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    .section-intro { grid-column: 1; }
+    .pivot-grid, .moat, .postcup, .stack, .tiers, .insights-grid { grid-template-columns: 1fr; }
+    .findings { grid-template-columns: 1fr; }
+    .timeline-meta { grid-template-columns: repeat(2, 1fr); }
+    .phase-row { grid-template-columns: 1fr; }
+    .phase-label { border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-top { flex-direction: column; gap: 24px; }
+    .doc-meta { text-align: left; }
+    .scroll-cue { display: none; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+
+  /* ====== SCROLL ANIMATIONS ====== */
+  /* Content visible by default; animations are progressive enhancement only */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0.001;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== TICKER ====== -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="dot">●</span> FUKU/SOL <span class="val">$0.0000123</span> <span class="up">+0.00%</span></span>
+    <span class="ticker-item">WORLD CUP <span class="val">JUN 11 — JUL 19</span></span>
+    <span class="ticker-item">DAYS TO KICKOFF <span class="val" id="ticker-days">24</span></span>
+    <span class="ticker-item">EXEC WINDOW <span class="val">60D</span></span>
+    <span class="ticker-item">HEADCOUNT <span class="val">1 SR DEV</span></span>
+    <span class="ticker-item">TARGET <span class="val">REVENUE × RETENTION</span></span>
+    <span class="ticker-item">TIPSTER API <span class="up">LIVE</span></span>
+    <span class="ticker-item">STATUS <span class="val">PRE-LAUNCH</span></span>
+    <span class="ticker-item"><span class="dot">●</span> FUKU/SOL <span class="val">$0.0000123</span> <span class="up">+0.00%</span></span>
+    <span class="ticker-item">WORLD CUP <span class="val">JUN 11 — JUL 19</span></span>
+    <span class="ticker-item">DAYS TO KICKOFF <span class="val">24</span></span>
+    <span class="ticker-item">EXEC WINDOW <span class="val">60D</span></span>
+    <span class="ticker-item">HEADCOUNT <span class="val">1 SR DEV</span></span>
+    <span class="ticker-item">TARGET <span class="val">REVENUE × RETENTION</span></span>
+  </div>
+</div>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="hero-grid"></div>
+
+  <div class="hero-top">
+    <div class="brand">
+      <div class="kanji">福</div>
+      <div class="text">
+        <div class="domain">bets.fuku.ag</div>
+        <div class="sub">Execution Roadmap · v1.0</div>
+      </div>
+    </div>
+    <div class="doc-meta">
+      <div><span class="label">DOC</span> &nbsp; <span class="val">RM-2026-WC</span></div>
+      <div><span class="label">DATE</span> &nbsp;<span class="val">18 MAY 2026</span></div>
+      <div><span class="label">AUTHOR</span> &nbsp;<span class="val">RETURNING DEV</span></div>
+      <div><span class="label">FOR</span> &nbsp;<span class="val">FUKU TRADING</span></div>
+    </div>
+  </div>
+
+  <div class="hero-main">
+    <div class="hero-tag">— a sixty-day plan to hammer the world cup</div>
+    <h1 class="hero-title">
+      Ship the <span class="em">moat</span>.<br>
+      Ride the <span class="red">cup</span>.<br>
+      Keep the <span class="em">crown</span>.
+    </h1>
+    <p class="hero-sub">
+      A focused roadmap for <strong>one senior developer</strong>, anchored to a single non-negotiable deadline: <strong>June 11, 2026 — World Cup kickoff</strong>. No token launches. No enterprise fantasies. No casino pivots. Just the work that turns the private tipster API into the only reason bets.fuku.ag isn't interchangeable with fifty other crypto books.
+    </p>
+
+    <div class="countdown">
+      <div class="countdown-cell accent">
+        <div class="num" id="cd-days">24</div>
+        <div class="lbl">Days to kickoff</div>
+      </div>
+      <div class="countdown-cell">
+        <div class="num">39</div>
+        <div class="lbl">Days of cup</div>
+      </div>
+      <div class="countdown-cell">
+        <div class="num">60</div>
+        <div class="lbl">Days to execute</div>
+      </div>
+      <div class="countdown-cell">
+        <div class="num">1</div>
+        <div class="lbl">Developer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div>§ 01 · 11 sections · Read time ~12 min</div>
+    <div>↓ Begin</div>
+  </div>
+
+  <div class="scroll-cue">Scroll · スクロール</div>
+</header>
+
+<!-- ====== 01 AUDIT ====== -->
+<section id="audit">
+  <div class="section-head">
+    <div class="section-num">§ 01 / Audit</div>
+    <div>
+      <h2 class="section-title">What's <span class="em">broken</span><br>right <span class="red">now</span></h2>
+      <p class="section-intro">
+        An external scan of <strong>bets.fuku.ag</strong> surfaces a small set of high-leverage fixes that cost almost nothing but compound every week left unfixed. Each finding below is observable from the public-facing site as of <strong>May 18, 2026</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="findings">
+    <div class="finding">
+      <div class="finding-num">— 一</div>
+      <span class="finding-tag warn">IDENTITY</span>
+      <h3>The site still says CBB Predictions.</h3>
+      <p>Page title, meta description, OG card — all anchored to college basketball. The World Cup pivot is invisible to every Twitter scroll, every Google snippet, every link preview.</p>
+      <div class="finding-code">&lt;title&gt;CBB Predictions&lt;/title&gt;<br>&lt;meta description="Let's hammer."&gt;</div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">— 二</div>
+      <span class="finding-tag warn">SEO</span>
+      <h3>The HTML ships empty.</h3>
+      <p>The site is a fully client-rendered SPA. Crawlers see metadata and nothing else. <strong>Google can't index tipsters. Twitter can't preview matches. Telegram can't unfurl picks.</strong> Every share is unstyled garbage.</p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">— 三</div>
+      <span class="finding-tag warn">VIRALITY</span>
+      <h3>One static OG image for the entire site.</h3>
+      <p>Every share of every page produces the same preview card. <strong>The single biggest free distribution channel in crypto — a screenshot-worthy slip — is unbuilt.</strong></p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">— 四</div>
+      <span class="finding-tag">BRAND</span>
+      <h3>The Fuku ecosystem isn't connected.</h3>
+      <p>Nothing on bets.fuku.ag signals it's part of <strong>fuku.ag</strong> (FukuAI), <strong>brain.fuku.ag</strong> (Trading Terminal), or the <strong>$FUKU</strong> token. A pre-built Solana audience sits one click away and isn't routed in.</p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">— 五</div>
+      <span class="finding-tag">PRODUCT</span>
+      <h3>The tipsters are invisible.</h3>
+      <p>The private API is the moat. Externally, there are no tipster pages, no leaderboard URLs, no verified-ROI cards. <strong>The single most defensible asset of the product is not surfaced anywhere a stranger can find it.</strong></p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">— 六</div>
+      <span class="finding-tag">POSITION</span>
+      <h3>"Let's hammer." is a tagline with nowhere to live.</h3>
+      <p>The phrase is sharp, on-brand, and degen-friendly. It's also the only piece of identity that survives the metadata. <strong>Build the entire surface around it</strong> — Hammers of the day. Hammer score. Hammer history.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 02 STRATEGIC PIVOT ====== -->
+<section id="pivot">
+  <div class="section-head">
+    <div class="section-num">§ 02 / Strategy</div>
+    <div>
+      <h2 class="section-title">Three <span class="red">pivots</span><br>that change <span class="em">everything</span></h2>
+      <p class="section-intro">
+        The original brief assumed a generic crypto sportsbook chasing European football fans. The actual surface tells a different story. <strong>Get the positioning right and the rest of the roadmap halves in difficulty.</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="pivot-grid">
+    <div class="pivot">
+      <div class="pivot-kanji">人</div>
+      <div class="pivot-label">Audience · 01</div>
+      <h3>Solana degens, not European football fans.</h3>
+      <p>The Fuku ecosystem audience is already crypto-native, already trained on signals and alerts, already on X. <strong>Tap them first.</strong></p>
+      <p>It means X bot before Telegram bot. Phantom-style share cards. SOL and USDC-on-Solana first. Wallet-based referral. Pump.fun aesthetic on the slip art.</p>
+    </div>
+
+    <div class="pivot">
+      <div class="pivot-kanji">運</div>
+      <div class="pivot-label">Product · 02</div>
+      <h3>Tipster platform with bets attached — not a sportsbook with content.</h3>
+      <p>Users do not return for odds. They return for <strong>people, picks, and the leaderboard that ranks them honestly</strong>.</p>
+      <p>Every dev hour spent improving the book itself is an hour stolen from the only thing that makes Fuku different from fifty other .ag domains. Treat the sportsbook as plumbing.</p>
+    </div>
+
+    <div class="pivot">
+      <div class="pivot-kanji">福</div>
+      <div class="pivot-label">Token · 03</div>
+      <h3>Give $FUKU utility — don't launch anything new.</h3>
+      <p>A token already exists. Currently it has no product use. <strong>Wire it into the product as the only crypto-native loyalty surface that costs zero legal time.</strong></p>
+      <p>Hold X $FUKU → premium tier. Win prediction games → $FUKU drips from the dev wallet. Referral cuts payable in $FUKU. No new mint. No new audit. No new lawyer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 03 TIPSTER MOAT ====== -->
+<section id="moat">
+  <div class="section-head">
+    <div class="section-num">§ 03 / Moat</div>
+    <div>
+      <h2 class="section-title">The tipster <span class="em">system</span><br>is the <span class="red">product</span></h2>
+      <p class="section-intro">
+        Everything else exists to amplify a verified pick into a shareable, tail-able, brag-able moment. If only five features ship in sixty days, they are these five.
+      </p>
+    </div>
+  </div>
+
+  <div class="moat">
+    <div class="moat-statement">
+      <p class="q">"The only crypto book where you can see <em>exactly who's been right</em> and tail them in two taps."</p>
+      <p>That's the positioning. Everything in this section earns its place by making that sentence more true. The unit of trust is the tipster, not the platform. The unit of virality is the slip, not the bet. The unit of retention is the streak, not the deposit.</p>
+    </div>
+
+    <ul class="moat-list">
+      <li>
+        <span class="idx">一</span>
+        <div>
+          <h4>Tipster profile pages.</h4>
+          <p>Public, indexable, branded. Verified ROI, hot/cold last-10 indicator, follow button, tail history.</p>
+        </div>
+      </li>
+      <li>
+        <span class="idx">二</span>
+        <div>
+          <h4>One-tap tail-bet flow.</h4>
+          <p>From pick card to placed bet in under five seconds. Stake prefilled to user's average. Confirm. Done.</p>
+        </div>
+      </li>
+      <li>
+        <span class="idx">三</span>
+        <div>
+          <h4>Leaderboard with composite scoring.</h4>
+          <p>Adjusted ROI · consistency · recency · specialty. Components visible. Argument-bait by design.</p>
+        </div>
+      </li>
+      <li>
+        <span class="idx">四</span>
+        <div>
+          <h4>X bot + Telegram bot.</h4>
+          <p>Daily pick DM. Bet confirmation. Pick-of-the-day public channel. VIP-gated channel. Account-linked.</p>
+        </div>
+      </li>
+      <li>
+        <span class="idx">五</span>
+        <div>
+          <h4>Dynamic slip-share cards.</h4>
+          <p>Auto-generated PNG on every settled bet. Branded watermark. Scan-to-tail QR. Win-images share themselves.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====== 04 TIMELINE ====== -->
+<section id="timeline">
+  <div class="section-head">
+    <div class="section-num">§ 04 / Plan</div>
+    <div>
+      <h2 class="section-title">Sixty days,<br><span class="em">three</span> <span class="red">phases</span></h2>
+      <p class="section-intro">
+        The only hard rule: <strong>ship velocity hits zero on June 10 and stays there until the group stage closes</strong>. Match days are operations, not deploys. A deploy that takes down live betting during a Brazil match is a trust catastrophe that won't recover in 2026.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-meta">
+    <div class="tm-cell">
+      <div class="lbl">Build window</div>
+      <div class="val">24<span class="red"> days</span></div>
+    </div>
+    <div class="tm-cell">
+      <div class="lbl">Cup window</div>
+      <div class="val">39<span class="red"> days</span></div>
+    </div>
+    <div class="tm-cell">
+      <div class="lbl">Bridge window</div>
+      <div class="val">28<span class="red"> days</span></div>
+    </div>
+    <div class="tm-cell">
+      <div class="lbl">First match</div>
+      <div class="val">JUN 11</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- PHASE A -->
+    <div class="phase-row">
+      <div class="phase-label">
+        <div class="phase-num">Phase A · Build</div>
+        <div class="phase-name">Pre-Cup</div>
+        <div class="phase-date">MAY 18 — JUN 10</div>
+      </div>
+      <div class="phase-content">
+        <div class="week-row">
+          <div class="week-num">Wk 1</div>
+          <div class="week-content"><strong>Foundation.</strong> Tipster API integration. Tipster profile pages. Stats computation cron. Public leaderboard. Tail-bet flow v1. <em>Most important week of the plan.</em></div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 2</div>
+          <div class="week-content"><strong>Distribution.</strong> Web push infra. Telegram bot v1 (auth, daily pick DM, bet confirmations). X bot v1. Slip-share card generator. Share buttons. <em>Champions League final May 30 = live dress rehearsal.</em></div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 3</div>
+          <div class="week-content"><strong>Retention.</strong> Daily streak + free $FUKU faucet. Live match chat (managed). Mission framework with 8 seeded missions. Comments + reactions. Referral system + dashboard.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 4</div>
+          <div class="week-content"><strong>Freeze.</strong> Load testing at 5× expected concurrents. Monitoring dashboards. Incident playbooks. Content prep — 64 LLM match-preview prompts queued. <em>No new code after June 10.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE B -->
+    <div class="phase-row cup">
+      <div class="phase-label">
+        <div class="phase-num">Phase B · Operate</div>
+        <div class="phase-name">During Cup</div>
+        <div class="phase-date">JUN 11 — JUL 19</div>
+      </div>
+      <div class="phase-content">
+        <div class="week-row">
+          <div class="week-num">Wk 5</div>
+          <div class="week-content"><strong>Group stage opens.</strong> Live ops. Tune notification frequency. Daily morning Telegram picks. Daily evening biggest-wins digest. Bug fixes only.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 6</div>
+          <div class="week-content"><strong>Mid-cup micro-features.</strong> Bet pool per match (who's on what side). Tipster-of-the-week framework with first crowning. Biggest-wins automated digest.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 7</div>
+          <div class="week-content"><strong>Knockouts begin June 28.</strong> Bracket prediction game (free-to-play, prize pool). Per-match stake polls. Tipster live commentary slots.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 8</div>
+          <div class="week-content"><strong>Sustain.</strong> Quarterfinal ops. Plan post-cup pivot. EPL coverage prep. Build the win-back campaign templates.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 9</div>
+          <div class="week-content"><strong>Semifinals + Final week.</strong> Pre-final hype. Bracket resolution. Tipster recaps. Final-day all-hands operation. <em>Peak single-day handle.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE C -->
+    <div class="phase-row">
+      <div class="phase-label">
+        <div class="phase-num">Phase C · Survive</div>
+        <div class="phase-name">Post-Cup Bridge</div>
+        <div class="phase-date">JUL 20 — AUG 16</div>
+      </div>
+      <div class="phase-content">
+        <div class="week-row">
+          <div class="week-num">Wk 10</div>
+          <div class="week-content"><strong>Identity push.</strong> Win-back campaign launches July 20. Tipsters move from "algorithm output" to brand personalities. Weekly recap content.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 11</div>
+          <div class="week-content"><strong>Coverage expansion.</strong> EPL, Champions League prep, NBA Finals overlap, tennis. Whatever the API covers best.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 12</div>
+          <div class="week-content"><strong>EPL kickoff August 9.</strong> Reactivation push: "don't lose your tournament momentum." Then build the things cut from pre-cup: deeper profiles, friends system, richer missions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 05 PRIORITY MATRIX ====== -->
+<section id="priorities">
+  <div class="section-head">
+    <div class="section-num">§ 05 / Priorities</div>
+    <div>
+      <h2 class="section-title">What to <span class="red">ship</span>,<br>what to <span class="em">cut</span></h2>
+      <p class="section-intro">
+        One developer, sixty days, a non-negotiable kickoff. Brutality is the only sane response. Every feature below has been classified by realistic impact-per-dev-hour, not by what would be interesting to build.
+      </p>
+    </div>
+  </div>
+
+  <div class="tiers">
+    <div class="tier t1">
+      <div class="tier-head">
+        <span class="tier-tag">Tier 01 · Must</span>
+        <h3 class="tier-title">Ship before kickoff.</h3>
+      </div>
+      <ul>
+        <li>Tipster profile pages with verified ROI</li>
+        <li>One-tap tail-bet flow</li>
+        <li>Tipster leaderboard (composite scored)</li>
+        <li>Telegram bot — picks, confirmations, VIP channel</li>
+        <li>X bot — autopost + share-to-tail</li>
+        <li>Slip-share card generator</li>
+        <li>Daily streak + $FUKU faucet</li>
+        <li>Live match chat (managed service)</li>
+        <li>Push notifications (web + TG)</li>
+        <li>Referral with on-chain revshare</li>
+      </ul>
+    </div>
+
+    <div class="tier t2">
+      <div class="tier-head">
+        <span class="tier-tag">Tier 02 · Should</span>
+        <h3 class="tier-title">Mid-cup or just after.</h3>
+      </div>
+      <ul>
+        <li>Missions / quests framework</li>
+        <li>AI bet explainer (LLM wrapper)</li>
+        <li>Friend system (follow other users)</li>
+        <li>Bracket prediction game (final week)</li>
+        <li>Per-match bet pool / consensus</li>
+        <li>VIP tier (deposit-volume gated)</li>
+        <li>Tipster confidence visualizations</li>
+        <li>Tipster-of-the-week + rivalries</li>
+      </ul>
+    </div>
+
+    <div class="tier t3">
+      <div class="tier-head">
+        <span class="tier-tag">Tier 03 · Nice</span>
+        <h3 class="tier-title">Post-cup only.</h3>
+      </div>
+      <ul>
+        <li>XP / level system with cosmetics</li>
+        <li>Deeper user profiles (bio, avatar)</li>
+        <li>Personalized pick recommendations</li>
+        <li>Bet challenges between users</li>
+        <li>Embed widgets for streamers</li>
+        <li>Multi-language (ES, PT, TR)</li>
+        <li>Multi-sport leaderboards</li>
+      </ul>
+    </div>
+
+    <div class="tier t4">
+      <div class="tier-head">
+        <span class="tier-tag">Tier 04 · Avoid</span>
+        <h3 class="tier-title">Do not build.</h3>
+      </div>
+      <ul>
+        <li>New token launch</li>
+        <li>NFT collection of any kind</li>
+        <li>On-chain bet settlement</li>
+        <li>Casino games / originals</li>
+        <li>Native iOS / Android apps</li>
+        <li>DAO / governance system</li>
+        <li>AI-generated picks</li>
+        <li>Custom chat infrastructure</li>
+        <li>Rewriting the sportsbook core</li>
+        <li>Streaming / video features</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 06 STACK ====== -->
+<section id="stack">
+  <div class="section-head">
+    <div class="section-num">§ 06 / Stack</div>
+    <div>
+      <h2 class="section-title">Lean <span class="em">stack</span>,<br>managed <span class="red">edges</span></h2>
+      <p class="section-intro">
+        Every infrastructure decision below is filtered through one question: <strong>does this break under match-day load when there's one person on call?</strong> The answer is "no" only when boring, managed, and cached.
+      </p>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="stack-cell">
+      <div class="label">Application</div>
+      <h4>Existing core + thin layer.</h4>
+      <ul>
+        <li><strong>Sportsbook core</strong> — untouched</li>
+        <li><strong>Backend</strong> — Node/TS module added</li>
+        <li><strong>Frontend</strong> — Next.js App Router (SSR/ISR for SEO)</li>
+        <li><strong>Auth</strong> — Phantom + email link</li>
+        <li><strong>LLM</strong> — Anthropic API, heavily cached</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Data</div>
+      <h4>Postgres + Redis. No more.</h4>
+      <ul>
+        <li><strong>Postgres</strong> — tipsters, picks, follows, missions</li>
+        <li><strong>Redis</strong> — sorted-set leaderboards, sessions, hot cache</li>
+        <li><strong>BullMQ</strong> — notification queue, settlement jobs</li>
+        <li><strong>Cold storage</strong> — weekly archive of old picks</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Realtime</div>
+      <h4>Don't build it. Buy it.</h4>
+      <ul>
+        <li><strong>Ably or Pusher</strong> — live chat + odds delta channels</li>
+        <li><strong>Web Push API</strong> — browser notifications</li>
+        <li><strong>Telegram + X</strong> — own bots, low effort</li>
+        <li><strong>Cloudflare</strong> — edge cache for public pages</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Distribution</div>
+      <h4>Where the audience already lives.</h4>
+      <ul>
+        <li><strong>X</strong> — primary virality channel (Solana-degen audience)</li>
+        <li><strong>Telegram</strong> — secondary, deeper engagement</li>
+        <li><strong>Discord</strong> — webhook-only, no full server</li>
+        <li><strong>Email</strong> — digests only, never transactional</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Images</div>
+      <h4>Slip cards as a first-class system.</h4>
+      <ul>
+        <li><strong>Satori + Resvg</strong> — server-rendered PNG, fast</li>
+        <li><strong>Caching</strong> — by bet outcome, served forever</li>
+        <li><strong>OG endpoint</strong> — dynamic per tipster, per pick, per match</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Observability</div>
+      <h4>Boring tools, picked early.</h4>
+      <ul>
+        <li><strong>Better Stack</strong> or <strong>Axiom</strong> — logs + uptime</li>
+        <li><strong>Sentry</strong> — frontend + backend errors</li>
+        <li><strong>PostHog</strong> — product analytics, self-host if needed</li>
+        <li><strong>One on-call rotation</strong> — you</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 07 POST CUP ====== -->
+<section id="postcup">
+  <div class="section-head">
+    <div class="section-num">§ 07 / Survival</div>
+    <div>
+      <h2 class="section-title">Cup ends.<br>The <span class="em">product</span> <span class="red">continues</span>.</h2>
+      <p class="section-intro">
+        Most World Cup pivots die on July 20. The 10–20% of cup tourists who followed a tipster, joined a Telegram, and built a streak become 80% of post-cup revenue. <strong>Build the cup for retention into August — not for handle in July.</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="postcup">
+    <div class="postcup-statement">
+      <p class="pull">The 39 days of the cup are not your revenue window. They are your <em>customer acquisition</em> window for the next twelve months.</p>
+      <p>The whale who comes for Brazil–Argentina but stays for Premier League is worth thirty World Cup tourists. The Telegram subscriber retained from the group stage is worth more than the casual who deposited $200 and left.</p>
+      <p>Every operational decision during the cup should answer one question: <strong>does this give us users in August?</strong> Loud wins, tipster relationships, and streaks are how you say yes.</p>
+    </div>
+
+    <div class="postcup-stack">
+      <div class="postcup-event">
+        <div class="date">JUL 19</div>
+        <h4>World Cup Final.</h4>
+        <p>All-hands operation. Bracket resolution. Champion tipster crowning. Final-day prize pool.</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">JUL 20</div>
+        <h4>Win-back campaign live.</h4>
+        <p>Personalized email + Telegram + X bot. "Your tipster's next big call is next week."</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">AUG 03</div>
+        <h4>Coverage expansion.</h4>
+        <p>EPL, Champions League, NBA, tennis. Tipster contracts widen to non-football sports.</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">AUG 09</div>
+        <h4>EPL kickoff.</h4>
+        <p>Reactivation push hits its target. "Don't lose your tournament momentum."</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">SEP +</div>
+        <h4>Year-round operating mode.</h4>
+        <p>Tipster brands compounding. Community alive. Token utility flywheeling. Roadmap continues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 08 INSIGHTS ====== -->
+<section id="insights">
+  <div class="section-head">
+    <div class="section-num">§ 08 / Insights</div>
+    <div>
+      <h2 class="section-title">The <span class="em">three</span> sentences<br>that <span class="red">matter</span></h2>
+      <p class="section-intro">
+        If everything else in this document is forgotten, these three insights are the ones the whole plan turns on.
+      </p>
+    </div>
+  </div>
+
+  <div class="insights-grid">
+    <div class="insight">
+      <div class="num">01</div>
+      <div class="lbl">Product Insight</div>
+      <h3>Users return for people, not platforms.</h3>
+      <p>The sportsbook is plumbing. The tipsters and the community arguing over their picks is the product. Every hour spent on the book itself is stolen from the only thing that differentiates Fuku from fifty other crypto books on the same domain extension.</p>
+    </div>
+
+    <div class="insight featured">
+      <div class="num">02</div>
+      <div class="lbl">Business Insight</div>
+      <h3>The cup is acquisition, not revenue.</h3>
+      <p>Most operators optimize the cup for gross handle in July. Wrong window. Optimize the cup for retention into August. The user who stays through the EPL season opener is worth thirty cup tourists who deposit once and disappear.</p>
+    </div>
+
+    <div class="insight">
+      <div class="num">03</div>
+      <div class="lbl">Technical Insight</div>
+      <h3>Ship velocity must hit zero on June 10.</h3>
+      <p>The biggest technical risk isn't a feature failing — it's a match-day deploy taking down live betting during a Brazil game and torching trust permanently. Build monitoring and incident playbooks in Week 4. Practice an incident. Then freeze.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 09 TOP LISTS ====== -->
+<section id="lists">
+  <div class="section-head">
+    <div class="section-num">§ 09 / Compounds</div>
+    <div>
+      <h2 class="section-title">Top-five <span class="red">levers</span>,<br>by <span class="em">dimension</span></h2>
+      <p class="section-intro">
+        A short reference: the five features that win on each of the four axes that actually matter for a sixty-day window.
+      </p>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="stack-cell">
+      <div class="label">Highest ROI</div>
+      <h4>If only one row ships.</h4>
+      <ul>
+        <li><strong>01</strong> — Tipster profiles + verified ROI</li>
+        <li><strong>02</strong> — One-tap tail-bet flow</li>
+        <li><strong>03</strong> — Telegram + X bots</li>
+        <li><strong>04</strong> — Slip-share cards</li>
+        <li><strong>05</strong> — Tipster leaderboard</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Fastest to build</div>
+      <h4>One-day wins.</h4>
+      <ul>
+        <li><strong>01</strong> — Daily streak system</li>
+        <li><strong>02</strong> — AI pick explainer</li>
+        <li><strong>03</strong> — Web push infrastructure</li>
+        <li><strong>04</strong> — Match preview cards</li>
+        <li><strong>05</strong> — Discord webhook server</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Most viral</div>
+      <h4>Free distribution.</h4>
+      <ul>
+        <li><strong>01</strong> — Slip-share cards (winning bets)</li>
+        <li><strong>02</strong> — Bracket prediction game</li>
+        <li><strong>03</strong> — Biggest-win-of-the-day digest</li>
+        <li><strong>04</strong> — Tipster rivalries / H2H</li>
+        <li><strong>05</strong> — Tail-this-bet deep links</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Most revenue</div>
+      <h4>Direct handle.</h4>
+      <ul>
+        <li><strong>01</strong> — Tail-bet flow</li>
+        <li><strong>02</strong> — Telegram pick distribution</li>
+        <li><strong>03</strong> — Live match betting overlay</li>
+        <li><strong>04</strong> — Premium tipster tier</li>
+        <li><strong>05</strong> — Referral revshare</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Highest retention</div>
+      <h4>Daily return.</h4>
+      <ul>
+        <li><strong>01</strong> — Daily streaks</li>
+        <li><strong>02</strong> — Telegram bot pushes</li>
+        <li><strong>03</strong> — Tipster follow system</li>
+        <li><strong>04</strong> — Leaderboard chases</li>
+        <li><strong>05</strong> — Missions / quests</li>
+      </ul>
+    </div>
+
+    <div class="stack-cell">
+      <div class="label">Worth saying no to</div>
+      <h4>The five biggest traps.</h4>
+      <ul>
+        <li><strong>01</strong> — Launching a new token</li>
+        <li><strong>02</strong> — Building native mobile apps</li>
+        <li><strong>03</strong> — On-chain bet settlement</li>
+        <li><strong>04</strong> — AI-generated picks</li>
+        <li><strong>05</strong> — Rewriting the sportsbook core</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BOTTOM LINE ====== -->
+<section class="bottom-line">
+  <div class="pre">— Closing statement —</div>
+  <h2>For sixty days, every line of code must answer:<br><br><em>"Does this make a user more likely to tail a tipster's pick within thirty seconds of seeing it — or share that bet after it wins?"</em><br><br>If yes, ship it. If no, defer it. That is the entire roadmap.</h2>
+  <div class="sig">福 · let's hammer · 福</div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div>
+    <span class="kanji">福</span>
+    bets.fuku.ag · Execution Roadmap v1.0 · Prepared 18 May 2026
+  </div>
+  <div>
+    For Fuku Trading · One returning developer · 60 days
+  </div>
+</footer>
+
+<script>
+  // Live countdown to World Cup
+  function updateCountdown() {
+    const kickoff = new Date('2026-06-11T16:00:00Z');
+    const now = new Date();
+    const days = Math.max(0, Math.ceil((kickoff - now) / (1000 * 60 * 60 * 24)));
+    const cdEl = document.getElementById('cd-days');
+    const tkEl = document.getElementById('ticker-days');
+    if (cdEl) cdEl.textContent = days;
+    if (tkEl) tkEl.textContent = days;
+  }
+  updateCountdown();
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
