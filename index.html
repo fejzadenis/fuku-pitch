@@ -622,7 +622,7 @@
   /* ====== TIER MATRIX ====== */
   .tiers {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
@@ -639,9 +639,6 @@
   .tier.t2 .tier-tag { color: var(--gold); border-color: var(--gold); }
 
   .tier.t3 .tier-tag { color: var(--fg-dim); border-color: var(--fg-dim); }
-  .tier.t4 .tier-tag { color: var(--fg-muted); border-color: var(--fg-muted); }
-
-  .tier.t4 ul li { color: var(--fg-muted); text-decoration: line-through; text-decoration-color: var(--rule); }
 
   .tier-head {
     display: flex;
@@ -689,7 +686,6 @@
     font-size: 12px;
   }
 
-  .tier.t4 ul li::before { content: '×'; color: var(--fg-muted); }
   .tier.t2 ul li::before { color: var(--gold); }
 
   /* ====== STACK ====== */
@@ -1112,39 +1108,6 @@
     color: var(--red);
     font-family: 'Shippori Mincho B1', serif;
     font-size: 14px;
-  }
-
-  .rm-nope {
-    margin-top: 24px;
-    padding: 24px 32px;
-    border: 1px solid var(--rule);
-    background: var(--bg-elev);
-  }
-
-  .rm-nope .lbl {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--fg-muted);
-    letter-spacing: 0.25em;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-  }
-
-  .rm-nope-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .rm-nope-list span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    padding: 6px 10px;
-    border: 1px solid var(--rule-strong);
-    color: var(--fg-muted);
-    text-decoration: line-through;
-    text-decoration-color: var(--red);
-    text-decoration-thickness: 1px;
   }
 
   @media (max-width: 900px) {
@@ -1723,24 +1686,6 @@
       </ul>
     </div>
 
-    <div class="tier t4">
-      <div class="tier-head">
-        <span class="tier-tag">Tier 04 · Avoid</span>
-        <h3 class="tier-title">Do not build.</h3>
-      </div>
-      <ul>
-        <li>New token launch</li>
-        <li>NFT collection of any kind</li>
-        <li>On-chain bet settlement</li>
-        <li>Casino games / originals</li>
-        <li>Native iOS / Android apps</li>
-        <li>DAO / governance system</li>
-        <li>AI-generated picks</li>
-        <li>Custom chat infrastructure</li>
-        <li>Rewriting the sportsbook core</li>
-        <li>Streaming / video features</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -2389,23 +2334,6 @@
       <li>DAU, holder count, and tail-rate all trending up week-over-week.</li>
       <li>Roadmap into Q4 2026 written and committed publicly.</li>
     </ul>
-  </div>
-
-  <!-- HARD NOS -->
-  <div class="rm-nope">
-    <div class="lbl">Hard nos for all 120 days · do not build</div>
-    <div class="rm-nope-list">
-      <span>New token launch</span>
-      <span>NFTs</span>
-      <span>On-chain bet settlement</span>
-      <span>Casino games</span>
-      <span>Native mobile apps</span>
-      <span>DAO</span>
-      <span>AI-generated picks</span>
-      <span>Custom chat infra</span>
-      <span>Sportsbook core rewrite</span>
-      <span>Multi-language v1</span>
-    </div>
   </div>
 </section>
 
