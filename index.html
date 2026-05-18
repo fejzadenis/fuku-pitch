@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>福 bets.fuku.ag — Execution Roadmap</title>
-<meta name="description" content="A 60-day execution roadmap for bets.fuku.ag — built around the 2026 FIFA World Cup window.">
+<meta name="description" content="A 120-day execution roadmap for bets.fuku.ag — built around the 2026 FIFA World Cup window and the compound phase that follows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Shippori+Mincho+B1:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -518,7 +518,7 @@
   /* ====== TIMELINE ====== */
   .timeline-meta {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     border: 1px solid var(--rule);
     margin-bottom: 48px;
   }
@@ -812,10 +812,17 @@
   /* ====== INSIGHTS / FINAL ====== */
   .insights-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     background: var(--rule);
     border: 1px solid var(--rule);
+  }
+
+  @media (max-width: 1100px) {
+    .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .insights-grid { grid-template-columns: 1fr; }
   }
 
   .insight {
@@ -981,20 +988,24 @@
 <!-- ====== TICKER ====== -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="dot">●</span> FUKU/SOL <span class="val">$0.0000123</span> <span class="up">+0.00%</span></span>
+    <span class="ticker-item"><span class="dot">●</span> FUKU/VIRTUAL <span class="val">Base L2</span></span>
+    <span class="ticker-item">VIRTUALS PROTOCOL <span class="up">ACTIVE AGENT</span></span>
     <span class="ticker-item">WORLD CUP <span class="val">JUN 11 — JUL 19</span></span>
     <span class="ticker-item">DAYS TO KICKOFF <span class="val" id="ticker-days">24</span></span>
-    <span class="ticker-item">EXEC WINDOW <span class="val">60D</span></span>
+    <span class="ticker-item">EXEC WINDOW <span class="val">120D</span></span>
     <span class="ticker-item">HEADCOUNT <span class="val">1 SR DEV</span></span>
-    <span class="ticker-item">TARGET <span class="val">REVENUE × RETENTION</span></span>
+    <span class="ticker-item">TARGET <span class="val">MARKET CAP × RETENTION × REVENUE</span></span>
     <span class="ticker-item">TIPSTER API <span class="up">LIVE</span></span>
     <span class="ticker-item">STATUS <span class="val">PRE-LAUNCH</span></span>
-    <span class="ticker-item"><span class="dot">●</span> FUKU/SOL <span class="val">$0.0000123</span> <span class="up">+0.00%</span></span>
+    <span class="ticker-item"><span class="dot">●</span> FUKU/VIRTUAL <span class="val">Base L2</span></span>
+    <span class="ticker-item">VIRTUALS PROTOCOL <span class="up">ACTIVE AGENT</span></span>
     <span class="ticker-item">WORLD CUP <span class="val">JUN 11 — JUL 19</span></span>
     <span class="ticker-item">DAYS TO KICKOFF <span class="val">24</span></span>
-    <span class="ticker-item">EXEC WINDOW <span class="val">60D</span></span>
+    <span class="ticker-item">EXEC WINDOW <span class="val">120D</span></span>
     <span class="ticker-item">HEADCOUNT <span class="val">1 SR DEV</span></span>
-    <span class="ticker-item">TARGET <span class="val">REVENUE × RETENTION</span></span>
+    <span class="ticker-item">TARGET <span class="val">MARKET CAP × RETENTION × REVENUE</span></span>
+    <span class="ticker-item">TIPSTER API <span class="up">LIVE</span></span>
+    <span class="ticker-item">STATUS <span class="val">PRE-LAUNCH</span></span>
   </div>
 </div>
 
@@ -1007,26 +1018,26 @@
       <div class="kanji">福</div>
       <div class="text">
         <div class="domain">bets.fuku.ag</div>
-        <div class="sub">Execution Roadmap · v1.0</div>
+        <div class="sub">Execution Roadmap · v2.0 · Virtuals Edition</div>
       </div>
     </div>
     <div class="doc-meta">
-      <div><span class="label">DOC</span> &nbsp; <span class="val">RM-2026-WC</span></div>
+      <div><span class="label">DOC</span> &nbsp; <span class="val">RM-2026-WC-V2</span></div>
       <div><span class="label">DATE</span> &nbsp;<span class="val">18 MAY 2026</span></div>
       <div><span class="label">AUTHOR</span> &nbsp;<span class="val">RETURNING DEV</span></div>
-      <div><span class="label">FOR</span> &nbsp;<span class="val">FUKU TRADING</span></div>
+      <div><span class="label">FOR</span> &nbsp;<span class="val">FUKU · VIRTUALS AGENT</span></div>
     </div>
   </div>
 
   <div class="hero-main">
-    <div class="hero-tag">— a sixty-day plan to hammer the world cup</div>
+    <div class="hero-tag">— a 120-day plan to hammer the world cup and regain market cap</div>
     <h1 class="hero-title">
       Ship the <span class="em">moat</span>.<br>
       Ride the <span class="red">cup</span>.<br>
       Keep the <span class="em">crown</span>.
     </h1>
     <p class="hero-sub">
-      A focused roadmap for <strong>one senior developer</strong>, anchored to a single non-negotiable deadline: <strong>June 11, 2026 — World Cup kickoff</strong>. No token launches. No enterprise fantasies. No casino pivots. Just the work that turns the private tipster API into the only reason bets.fuku.ag isn't interchangeable with fifty other crypto books.
+      A focused roadmap for <strong>one senior developer</strong>, structured around two milestones: <strong>World Cup kickoff on June 11, 2026</strong> and the <strong>120-day window to regain market cap as a top-tier Virtuals agent</strong>. No new tokens. No enterprise fantasies. No casino pivots. Just the work that makes bets.fuku.ag the autonomous betting agent of the Virtuals ecosystem — and turns the private tipster API into the only reason it isn't interchangeable with fifty other crypto books.
     </p>
 
     <div class="countdown">
@@ -1039,7 +1050,7 @@
         <div class="lbl">Days of cup</div>
       </div>
       <div class="countdown-cell">
-        <div class="num">60</div>
+        <div class="num">120</div>
         <div class="lbl">Days to execute</div>
       </div>
       <div class="countdown-cell">
@@ -1096,7 +1107,7 @@
       <div class="finding-num">— 四</div>
       <span class="finding-tag">BRAND</span>
       <h3>The Fuku ecosystem isn't connected.</h3>
-      <p>Nothing on bets.fuku.ag signals it's part of <strong>fuku.ag</strong> (FukuAI), <strong>brain.fuku.ag</strong> (Trading Terminal), or the <strong>$FUKU</strong> token. A pre-built Solana audience sits one click away and isn't routed in.</p>
+      <p>Nothing on bets.fuku.ag signals it's a <strong>Virtuals Protocol agent on Base</strong>, or that it's part of the broader Fuku ecosystem. A pre-built Virtuals-ecosystem audience sits one click away — and isn't routed in.</p>
     </div>
 
     <div class="finding">
@@ -1131,9 +1142,9 @@
     <div class="pivot">
       <div class="pivot-kanji">人</div>
       <div class="pivot-label">Audience · 01</div>
-      <h3>Solana degens, not European football fans.</h3>
+      <h3>Crypto-native degens, not European football fans.</h3>
       <p>The Fuku ecosystem audience is already crypto-native, already trained on signals and alerts, already on X. <strong>Tap them first.</strong></p>
-      <p>It means X bot before Telegram bot. Phantom-style share cards. SOL and USDC-on-Solana first. Wallet-based referral. Pump.fun aesthetic on the slip art.</p>
+      <p>It means X bot before Telegram bot. Coinbase Wallet and Base-native share cards. ETH and USDC-on-Base first. Wallet-based referral. Virtuals-ecosystem aesthetic on the slip art.</p>
     </div>
 
     <div class="pivot">
@@ -1147,9 +1158,9 @@
     <div class="pivot">
       <div class="pivot-kanji">福</div>
       <div class="pivot-label">Token · 03</div>
-      <h3>Give $FUKU utility — don't launch anything new.</h3>
-      <p>A token already exists. Currently it has no product use. <strong>Wire it into the product as the only crypto-native loyalty surface that costs zero legal time.</strong></p>
-      <p>Hold X $FUKU → premium tier. Win prediction games → $FUKU drips from the dev wallet. Referral cuts payable in $FUKU. No new mint. No new audit. No new lawyer.</p>
+      <h3>$FUKU as the agent's economic core on Virtuals.</h3>
+      <p>Fuku is a Virtuals Protocol agent on <strong>Base</strong>. $FUKU pairs with $VIRTUAL in a 10-year locked LP. The token already exists with no product utility — <strong>wire it into the product as the only crypto-native loyalty surface that costs zero legal time</strong>.</p>
+      <p>Hold X $FUKU → premium tier. Win prediction games → $FUKU drips from the dev wallet. Referral cuts payable in $FUKU. The agent's autonomous revenue flows back to holders. Same playbook AIXBT used to hit $500M cap, applied to sports.</p>
     </div>
   </div>
 </section>
@@ -1161,7 +1172,7 @@
     <div>
       <h2 class="section-title">The tipster <span class="em">system</span><br>is the <span class="red">product</span></h2>
       <p class="section-intro">
-        Everything else exists to amplify a verified pick into a shareable, tail-able, brag-able moment. If only five features ship in sixty days, they are these five.
+        Everything else exists to amplify a verified pick into a shareable, tail-able, brag-able moment. If only five features ship in 120 days, they are these five.
       </p>
     </div>
   </div>
@@ -1217,9 +1228,9 @@
   <div class="section-head">
     <div class="section-num">§ 04 / Plan</div>
     <div>
-      <h2 class="section-title">Sixty days,<br><span class="em">three</span> <span class="red">phases</span></h2>
+      <h2 class="section-title">120 days,<br><span class="em">four</span> <span class="red">phases</span></h2>
       <p class="section-intro">
-        The only hard rule: <strong>ship velocity hits zero on June 10 and stays there until the group stage closes</strong>. Match days are operations, not deploys. A deploy that takes down live betting during a Brazil match is a trust catastrophe that won't recover in 2026.
+        The only hard rule: <strong>ship velocity hits zero on June 10 and stays there until the group stage closes</strong>. Match days are operations, not deploys. The 120-day window extends past the cup into a <strong>compound phase</strong> where the agent's autonomous personality, on-chain track record, and $FUKU utility become the engine of market cap recovery — long after World Cup tourists have left.
       </p>
     </div>
   </div>
@@ -1236,6 +1247,10 @@
     <div class="tm-cell">
       <div class="lbl">Bridge window</div>
       <div class="val">28<span class="red"> days</span></div>
+    </div>
+    <div class="tm-cell">
+      <div class="lbl">Compound phase</div>
+      <div class="val">29<span class="red"> days</span></div>
     </div>
     <div class="tm-cell">
       <div class="lbl">First match</div>
@@ -1325,6 +1340,37 @@
         </div>
       </div>
     </div>
+
+    <!-- PHASE D -->
+    <div class="phase-row">
+      <div class="phase-label">
+        <div class="phase-num">Phase D · Compound</div>
+        <div class="phase-name">Agent Economy</div>
+        <div class="phase-date">AUG 17 — SEP 14</div>
+      </div>
+      <div class="phase-content">
+        <div class="week-row">
+          <div class="week-num">Wk 13</div>
+          <div class="week-content"><strong>Agent personality launch.</strong> "Fuku" agent goes live as a Virtuals-style autonomous identity. Activity feed: agent posts picks, updates leaderboards, replies on X. Public agent profile page with autonomous post history.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 14</div>
+          <div class="week-content"><strong>$FUKU utility layer.</strong> Premium tier gated by $FUKU balance check (on-chain). Holder-only Telegram channel. Holder-only tipster picks at minute zero. Visible "what your $FUKU gets you" page.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 15</div>
+          <div class="week-content"><strong>Revenue flywheel.</strong> Agent revenue tracking dashboard. Public protocol-fee accrual. Buyback-and-stake mechanism for $FUKU using affiliate/sportsbook revenue. Visible to holders, indexed for Virtuals ecosystem trackers.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 16</div>
+          <div class="week-content"><strong>Cross-agent integration.</strong> Hook into Virtuals ACP (Agent Commerce Protocol). Allow other Virtuals agents to query Fuku for picks via x402 micropayments. Position as the on-chain sports-intelligence primitive.</div>
+        </div>
+        <div class="week-row">
+          <div class="week-num">Wk 17</div>
+          <div class="week-content"><strong>NFL/EPL/NBA season ignition.</strong> NFL kicks off Sep 10. EPL is mid-season. NBA preseason starts. Multi-sport leaderboards. Tipster contracts widen. Agent's autonomous coverage expands. <em>The compound phase becomes the steady state.</em></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1335,7 +1381,7 @@
     <div>
       <h2 class="section-title">What to <span class="red">ship</span>,<br>what to <span class="em">cut</span></h2>
       <p class="section-intro">
-        One developer, sixty days, a non-negotiable kickoff. Brutality is the only sane response. Every feature below has been classified by realistic impact-per-dev-hour, not by what would be interesting to build.
+        One developer, 120 days, a non-negotiable kickoff. Brutality is the only sane response. Every feature below has been classified by realistic impact-per-dev-hour, not by what would be interesting to build.
       </p>
     </div>
   </div>
@@ -1434,7 +1480,9 @@
         <li><strong>Sportsbook core</strong> — untouched</li>
         <li><strong>Backend</strong> — Node/TS module added</li>
         <li><strong>Frontend</strong> — Next.js App Router (SSR/ISR for SEO)</li>
-        <li><strong>Auth</strong> — Phantom + email link</li>
+        <li><strong>Chain</strong> — Base (Coinbase L2)</li>
+        <li><strong>Wallet</strong> — wagmi + RainbowKit, Coinbase Wallet first</li>
+        <li><strong>Auth</strong> — wallet address + email link</li>
         <li><strong>LLM</strong> — Anthropic API, heavily cached</li>
       </ul>
     </div>
@@ -1465,7 +1513,7 @@
       <div class="label">Distribution</div>
       <h4>Where the audience already lives.</h4>
       <ul>
-        <li><strong>X</strong> — primary virality channel (Solana-degen audience)</li>
+        <li><strong>X</strong> — primary virality channel (Base + crypto-native audience)</li>
         <li><strong>Telegram</strong> — secondary, deeper engagement</li>
         <li><strong>Discord</strong> — webhook-only, no full server</li>
         <li><strong>Email</strong> — digests only, never transactional</li>
@@ -1509,9 +1557,9 @@
 
   <div class="postcup">
     <div class="postcup-statement">
-      <p class="pull">The 39 days of the cup are not your revenue window. They are your <em>customer acquisition</em> window for the next twelve months.</p>
-      <p>The whale who comes for Brazil–Argentina but stays for Premier League is worth thirty World Cup tourists. The Telegram subscriber retained from the group stage is worth more than the casual who deposited $200 and left.</p>
-      <p>Every operational decision during the cup should answer one question: <strong>does this give us users in August?</strong> Loud wins, tipster relationships, and streaks are how you say yes.</p>
+      <p class="pull">The 39 days of the cup are not your revenue window. They are your <em>customer acquisition</em> window for the <em>120-day compound phase</em> that follows.</p>
+      <p>The whale who comes for Brazil–Argentina but stays for NFL Week 1 is worth thirty World Cup tourists. The $FUKU holder who joined for a bracket prize and stays for autonomous agent revenue is the user that recovers market cap.</p>
+      <p>Every operational decision during the cup should answer one question: <strong>does this give us a user, a holder, or a tipster relationship that survives into September?</strong> Loud wins, tipster brands, on-chain track records, and visible $FUKU utility are how you say yes.</p>
     </div>
 
     <div class="postcup-stack">
@@ -1536,9 +1584,19 @@
         <p>Reactivation push hits its target. "Don't lose your tournament momentum."</p>
       </div>
       <div class="postcup-event">
-        <div class="date">SEP +</div>
-        <h4>Year-round operating mode.</h4>
-        <p>Tipster brands compounding. Community alive. Token utility flywheeling. Roadmap continues.</p>
+        <div class="date">SEP 10</div>
+        <h4>NFL kickoff. Multi-sport ignition.</h4>
+        <p>EPL mid-season, NBA preseason, NFL Week 1. Multi-sport leaderboards live. Agent autonomously covers four major sports.</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">SEP 14</div>
+        <h4>120-day milestone.</h4>
+        <p>Compound phase complete. Agent is operationally autonomous. $FUKU has visible utility. Roadmap continues into season-driven steady state.</p>
+      </div>
+      <div class="postcup-event">
+        <div class="date">Q4 2026</div>
+        <h4>Virtuals top-10 by aGDP.</h4>
+        <p>The target: Fuku Bets ranks in the top 10 Virtuals agents by Agentic GDP. Market cap recovery measured in 3-5x from current, not bull-market spikes.</p>
       </div>
     </div>
   </div>
@@ -1549,9 +1607,9 @@
   <div class="section-head">
     <div class="section-num">§ 08 / Insights</div>
     <div>
-      <h2 class="section-title">The <span class="em">three</span> sentences<br>that <span class="red">matter</span></h2>
+      <h2 class="section-title">The <span class="em">four</span> sentences<br>that <span class="red">matter</span></h2>
       <p class="section-intro">
-        If everything else in this document is forgotten, these three insights are the ones the whole plan turns on.
+        If everything else in this document is forgotten, these four insights are the ones the whole plan turns on.
       </p>
     </div>
   </div>
@@ -1577,6 +1635,13 @@
       <h3>Ship velocity must hit zero on June 10.</h3>
       <p>The biggest technical risk isn't a feature failing — it's a match-day deploy taking down live betting during a Brazil game and torching trust permanently. Build monitoring and incident playbooks in Week 4. Practice an incident. Then freeze.</p>
     </div>
+
+    <div class="insight">
+      <div class="num">04</div>
+      <div class="lbl">Ecosystem Insight</div>
+      <h3>Be the Virtuals agent your sport doesn't have yet.</h3>
+      <p>AIXBT owns crypto intelligence. Luna owns AI streamers. No agent owns sports betting. The vertical is wide open and the Virtuals audience already understands "co-owned autonomous agent" as a thesis. <strong>Position Fuku Bets as the category-defining sports agent before someone else does.</strong></p>
+    </div>
   </div>
 </section>
 
@@ -1587,7 +1652,7 @@
     <div>
       <h2 class="section-title">Top-five <span class="red">levers</span>,<br>by <span class="em">dimension</span></h2>
       <p class="section-intro">
-        A short reference: the five features that win on each of the four axes that actually matter for a sixty-day window.
+        A short reference: the five features that win on each of the four axes that actually matter for a 120-day window.
       </p>
     </div>
   </div>
@@ -1664,13 +1729,25 @@
         <li><strong>05</strong> — Rewriting the sportsbook core</li>
       </ul>
     </div>
+
+    <div class="stack-cell">
+      <div class="label">Virtuals plays</div>
+      <h4>Ecosystem-native moves.</h4>
+      <ul>
+        <li><strong>01</strong> — Agent personality + autonomous voice</li>
+        <li><strong>02</strong> — $FUKU-gated premium picks</li>
+        <li><strong>03</strong> — On-chain pick history (merkle proofs)</li>
+        <li><strong>04</strong> — Virtuals ACP integration (sell picks to other agents)</li>
+        <li><strong>05</strong> — Cross-promote on Virtuals leaderboards</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- ====== BOTTOM LINE ====== -->
 <section class="bottom-line">
   <div class="pre">— Closing statement —</div>
-  <h2>For sixty days, every line of code must answer:<br><br><em>"Does this make a user more likely to tail a tipster's pick within thirty seconds of seeing it — or share that bet after it wins?"</em><br><br>If yes, ship it. If no, defer it. That is the entire roadmap.</h2>
+  <h2>For <em>120 days</em>, every line of code must answer:<br><br><em>"Does this make a user more likely to tail a tipster's pick within thirty seconds of seeing it — or share that bet after it wins — or buy more $FUKU because of what this agent did today?"</em><br><br>If yes, ship it. If no, defer it. That is the entire roadmap.</h2>
   <div class="sig">福 · let's hammer · 福</div>
 </section>
 
@@ -1678,10 +1755,10 @@
 <footer>
   <div>
     <span class="kanji">福</span>
-    bets.fuku.ag · Execution Roadmap v1.0 · Prepared 18 May 2026
+    bets.fuku.ag · Execution Roadmap v2.0 · Virtuals Edition · Prepared 18 May 2026
   </div>
   <div>
-    For Fuku Trading · One returning developer · 60 days
+    For Fuku Trading · One returning developer · 120 days
   </div>
 </footer>
 
